@@ -18,6 +18,21 @@ if (int.TryParse(Console.ReadLine(), out option))
                 if (odpoved_hrace >= 0 && odpoved_hrace == nahodne)
                 {
                     Console.WriteLine("Gratuluji! Uhodls spravne...");
+                    Console.WriteLine("Chces hrat znovu (ano/NE)?");
+                    string pl = Console.ReadLine();
+                    string cpl = pl.ToLower();
+                    if (cpl == "ano")
+                    {
+                        true_answer = true;
+                    }
+                    else if (cpl == "ne")
+                    {
+                        true_answer = false;
+                    }
+                    else
+                    {
+                        true_answer = false;
+                    }
                     true_answer = false;
                     Console.ReadLine();
                 }
@@ -45,7 +60,7 @@ if (int.TryParse(Console.ReadLine(), out option))
     else if (option == 2)
     {
         Console.Clear();
-        bool ContinueBool = true;
+        bool true_answer = true;
         Console.WriteLine("Vymysli si cislo od 1 do 100...");
         for (int i = 5; i > 0; i--)
         {
@@ -54,7 +69,7 @@ if (int.TryParse(Console.ReadLine(), out option))
         }
         Console.Clear();
         Random random = new Random();
-        while (ContinueBool)
+        while (true_answer)
         {
             int guess = random.Next(1, 101);
             Console.WriteLine("Je cislo, co si myslis " + guess + "?");
@@ -64,13 +79,26 @@ if (int.TryParse(Console.ReadLine(), out option))
             if (uans == "ano")
             {
                 Console.WriteLine("Vyhral jsem.");
-                ContinueBool = false;
-                Console.ReadLine();
+                Console.WriteLine("Chces hrat znovu (ano/NE)?");
+                string pl = Console.ReadLine();
+                string cpl = pl.ToLower();
+                if (cpl == "ano")
+                {
+                    true_answer = true;
+                }
+                else if (cpl == "ne")
+                {
+                    true_answer = false;
+                }
+                else
+                {
+                    true_answer = false;
+                }
             }
             else
             {
                 Console.WriteLine("Zkusim znova...\n");
-                ContinueBool = true;
+                true_answer = true;
             }
         }
     }
