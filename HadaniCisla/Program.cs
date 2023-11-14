@@ -18,23 +18,28 @@ if (int.TryParse(Console.ReadLine(), out option))
                 if (odpoved_hrace >= 0 && odpoved_hrace == nahodne)
                 {
                     Console.WriteLine("Gratuluji! Uhodls spravne...");
-                    Console.WriteLine("Chces hrat znovu (ano/NE)?");
-                    string pl = Console.ReadLine();
-                    string cpl = pl.ToLower();
-                    if (cpl == "ano")
+                    bool odpovezeno = true;
+                    while (odpovezeno)
                     {
-                        true_answer = true;
+                        Console.WriteLine("Chces hrat znovu (ano/NE)?");
+                        string pl = Console.ReadLine();
+                        string cpl = pl.ToLower();
+                        if (cpl == "ano")
+                        {
+                            odpovezeno = false;
+                            true_answer = true;
+                        }
+                        else if (cpl == "ne")
+                        {
+                            odpovezeno = false;
+                            true_answer = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nerozumim tve odpovedi.");
+                            odpovezeno = true;
+                        }
                     }
-                    else if (cpl == "ne")
-                    {
-                        true_answer = false;
-                    }
-                    else
-                    {
-                        true_answer = false;
-                    }
-                    true_answer = false;
-                    Console.ReadLine();
                 }
                 else if (odpoved_hrace > nahodne && odpoved_hrace > 0 && odpoved_hrace < 101)
                 {
@@ -79,20 +84,27 @@ if (int.TryParse(Console.ReadLine(), out option))
             if (uans == "ano")
             {
                 Console.WriteLine("Vyhral jsem.");
-                Console.WriteLine("Chces hrat znovu (ano/NE)?");
-                string pl = Console.ReadLine();
-                string cpl = pl.ToLower();
-                if (cpl == "ano")
+                bool odpoved_nezadana = true;
+                while (odpoved_nezadana)
                 {
-                    true_answer = true;
-                }
-                else if (cpl == "ne")
-                {
-                    true_answer = false;
-                }
-                else
-                {
-                    true_answer = false;
+                    Console.WriteLine("Chces hrat znovu (ano/NE)?");
+                    string pl = Console.ReadLine();
+                    string cpl = pl.ToLower();
+                    if (cpl == "ano")
+                    {
+                        odpoved_nezadana = false;
+                        true_answer = true;
+                    }
+                    else if (cpl == "ne")
+                    {
+                        odpoved_nezadana = false;
+                        true_answer = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nerozumim tve odpovedi.");
+                        odpoved_nezadana = true;
+                    }
                 }
             }
             else
